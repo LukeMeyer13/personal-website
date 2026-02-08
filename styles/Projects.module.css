@@ -130,6 +130,22 @@
   margin-bottom: 0;
 }
 
+/* Projects Placeholder */
+.projectsPlaceholder {
+  text-align: center;
+  padding: 4rem 2rem;
+  max-width: 600px;
+  margin: 3rem auto;
+}
+
+.projectsPlaceholder p {
+  color: var(--color-text-secondary, #F2F2F2);
+  font-size: 1.5rem;
+  line-height: 1.6;
+  margin: 0;
+  font-weight: 400;
+}
+
 /* Footer */
 .footer {
   background-color: #0D0D0D;
