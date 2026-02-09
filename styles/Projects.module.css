@@ -2,13 +2,13 @@
 .projectsContainer {
   max-width: 1200px;
   margin: 0 auto;
-  padding: calc(80px + 4rem) 2rem 4rem;
+  padding: var(--page-padding-top-desktop, calc(80px + 4rem)) var(--page-padding-horizontal-desktop, 2rem) 4rem;
   min-height: calc(100vh - 200px);
 }
 
 .projectsSection {
   opacity: 0;
-  animation: fadeInUp 0.8s ease-out 0.1s forwards;
+  animation: fadeInUp var(--animation-duration-slow, 0.8s) ease-out 0.1s forwards;
 }
 
 .sectionHeading {
@@ -49,11 +49,11 @@
   font-weight: 400;
 }
 
-/* Projects Grid */
+/* Projects Grid - Standardized */
 .projectsGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 3rem;
+  grid-template-columns: 1fr;
+  gap: var(--grid-gap-mobile, 2rem);
   margin-top: 3rem;
 }
 
@@ -68,9 +68,10 @@
   border: 2px solid var(--color-border, #595959);
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  transition: transform var(--transition-duration, 0.3s) ease, box-shadow var(--transition-duration, 0.3s) ease, border-color var(--transition-duration, 0.3s) ease;
   cursor: pointer;
   text-decoration: none;
+  min-height: var(--min-touch-target, 44px);
 }
 
 .projectCard:hover {
@@ -201,23 +202,25 @@
   }
 }
 
-/* Responsive Design */
+/* Responsive Design - Standardized Breakpoints */
+
+/* Mobile */
 @media (max-width: 767px) {
   .projectsContainer {
-    padding: calc(80px + 2rem) 1.5rem 3rem;
+    padding: var(--page-padding-top-mobile, calc(80px + 2rem)) var(--page-padding-horizontal-mobile, 1.5rem) 3rem;
   }
 
   .sectionHeading {
-    font-size: 2.25rem;
+    font-size: 2rem;
   }
 
   .projectsGrid {
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: var(--grid-gap-mobile, 2rem);
   }
 
   .projectCard {
-    padding: 2rem;
+    padding: var(--content-padding-mobile, 2rem);
   }
 
   .projectIconContainer {
@@ -231,14 +234,26 @@
   }
 }
 
+/* Tablet */
 @media (min-width: 768px) {
   .sectionHeading {
-    font-size: 3.5rem;
+    font-size: 2.75rem;
+  }
+
+  .projectsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--grid-gap-tablet, 2rem);
   }
 }
 
+/* Desktop */
 @media (min-width: 1024px) {
+  .sectionHeading {
+    font-size: 3.5rem;
+  }
+
   .projectsGrid {
     grid-template-columns: repeat(2, 1fr);
+    gap: var(--grid-gap-desktop, 3rem);
   }
 }

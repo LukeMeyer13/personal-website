@@ -2,18 +2,18 @@
 .contactContainer {
   max-width: 1200px;
   margin: 0 auto;
-  padding: calc(80px + 4rem) 2rem 4rem;
+  padding: var(--page-padding-top-desktop, calc(80px + 4rem)) var(--page-padding-horizontal-desktop, 2rem) 4rem;
   min-height: calc(100vh - 200px);
 }
 
 .contactSection {
   opacity: 0;
-  animation: fadeInUp 0.8s ease-out 0.1s forwards;
+  animation: fadeInUp var(--animation-duration-slow, 0.8s) ease-out 0.1s forwards;
 }
 
 .sectionHeading {
   color: var(--color-text-primary, #F2F2F2);
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: 800;
   text-align: center;
   margin-bottom: 1rem;
@@ -52,7 +52,7 @@
 .contactBox {
   background-color: var(--color-background, #0D0D0D);
   border-radius: 12px;
-  padding: 3rem;
+  padding: var(--content-padding-desktop, 3rem);
 }
 
 .contactInfo {
@@ -72,13 +72,14 @@
   background-color: rgba(46, 46, 46, 0.8);
   border-radius: 8px;
   border-bottom: 4px solid var(--color-text-highlight, #D99A4E);
-  transition: transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+  transition: transform var(--transition-duration, 0.2s) ease, border-color var(--transition-duration, 0.2s) ease, background-color var(--transition-duration, 0.2s) ease;
   text-decoration: none;
   color: inherit;
   cursor: pointer;
   flex: 1;
   max-width: 300px;
   text-align: center;
+  min-height: var(--min-touch-target, 44px);
 }
 
 .contactItem:hover {
@@ -148,12 +149,14 @@
 
 .socialIcon {
   color: var(--color-text-highlight, #D99A4E);
-  transition: color 0.3s ease, transform 0.2s ease;
+  transition: color var(--transition-duration, 0.3s) ease, transform var(--transition-duration, 0.2s) ease;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   width: 50px;
   height: 50px;
+  min-width: var(--min-touch-target, 44px);
+  min-height: var(--min-touch-target, 44px);
   background-color: var(--color-background-alt, #2e2e2e);
   border-radius: 50%;
   border: 2px solid var(--color-text-highlight, #D99A4E);
@@ -220,8 +223,22 @@
   }
 }
 
-/* Responsive Design */
-@media (max-width: 900px) {
+/* Responsive Design - Standardized Breakpoints */
+
+/* Mobile */
+@media (max-width: 767px) {
+  .contactContainer {
+    padding: var(--page-padding-top-mobile, calc(80px + 2rem)) var(--page-padding-horizontal-mobile, 1.5rem) 3rem;
+  }
+
+  .sectionHeading {
+    font-size: 2rem;
+  }
+
+  .contactBox {
+    padding: var(--content-padding-mobile, 2rem);
+  }
+
   .contactInfo {
     flex-direction: column;
     align-items: center;
@@ -231,27 +248,31 @@
     max-width: 100%;
     width: 100%;
   }
-}
-
-@media (max-width: 767px) {
-  .contactContainer {
-    padding: calc(80px + 2rem) 1.5rem 3rem;
-  }
-
-  .sectionHeading {
-    font-size: 2.25rem;
-  }
-
-  .contactBox {
-    padding: 2rem;
-  }
 
   .socialIcons {
     gap: 1.5rem;
   }
+
+  /* Ensure contact icons meet touch target */
+  .contactIcon {
+    min-width: var(--min-touch-target, 44px);
+    min-height: var(--min-touch-target, 44px);
+  }
 }
 
+/* Tablet */
 @media (min-width: 768px) {
+  .sectionHeading {
+    font-size: 2.75rem;
+  }
+
+  .contactInfo {
+    flex-direction: row;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
   .sectionHeading {
     font-size: 3.5rem;
   }

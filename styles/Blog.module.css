@@ -2,13 +2,13 @@
 .blogContainer {
   max-width: 1200px;
   margin: 0 auto;
-  padding: calc(80px + 4rem) 2rem 4rem;
+  padding: var(--page-padding-top-desktop, calc(80px + 4rem)) var(--page-padding-horizontal-desktop, 2rem) 4rem;
   min-height: calc(100vh - 200px);
 }
 
 .pageHeading {
   color: var(--color-text-primary, #F2F2F2);
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: 800;
   text-align: center;
   margin-bottom: 1rem;
@@ -17,7 +17,7 @@
   display: inline-block;
   width: 100%;
   opacity: 0;
-  animation: fadeInUp 0.8s ease-out forwards;
+  animation: fadeInUp var(--animation-duration-slow, 0.8s) ease-out forwards;
 }
 
 .pageHeading::after {
@@ -46,17 +46,18 @@
   margin-top: 3.5rem;
 }
 
-/* Blog Post Card */
+/* Blog Post Card - Improved Mobile Padding */
 .blogPostCard {
   background-color: #1a1a1a;
   border: 2px solid #1a1a1a;
   border-radius: 12px;
-  padding: 2rem 4rem;
+  padding: var(--content-padding-desktop, 2rem) var(--page-padding-horizontal-desktop, 2rem);
   cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  transition: transform var(--transition-duration, 0.3s) ease, box-shadow var(--transition-duration, 0.3s) ease, border-color var(--transition-duration, 0.3s) ease;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   opacity: 0;
-  animation: fadeInUp 0.8s ease-out forwards;
+  animation: fadeInUp var(--animation-duration-slow, 0.8s) ease-out forwards;
+  min-height: var(--min-touch-target, 44px);
 }
 
 .blogPostCard:nth-child(1) {
@@ -137,8 +138,8 @@
   align-items: center;
   justify-content: center;
   z-index: 1000;
-  padding: 2rem;
-  animation: fadeIn 0.3s ease-out;
+  padding: var(--page-padding-horizontal-desktop, 2rem);
+  animation: fadeIn var(--animation-duration-normal, 0.3s) ease-out;
   overflow-y: auto;
 }
 
@@ -182,7 +183,7 @@
 }
 
 .modalArticle {
-  padding: 3rem;
+  padding: var(--content-padding-desktop, 3rem);
 }
 
 .modalTitle {
@@ -281,34 +282,32 @@
   }
 }
 
-/* Responsive Design */
+/* Responsive Design - Standardized Breakpoints */
+
+/* Mobile */
 @media (max-width: 767px) {
   .blogContainer {
-    padding: calc(80px + 2rem) 1.5rem 3rem;
+    padding: var(--page-padding-top-mobile, calc(80px + 2rem)) var(--page-padding-horizontal-mobile, 1.5rem) 3rem;
   }
 
   .pageHeading {
-    font-size: 2.25rem;
+    font-size: 2rem;
   }
-}
 
-@media (min-width: 768px) {
-  .pageHeading {
-    font-size: 3.5rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .blogContainer {
-    padding: calc(80px + 2rem) 1.5rem 3rem 1.5rem;
+  .blogPostCard {
+    padding: var(--content-padding-mobile, 2rem) var(--page-padding-horizontal-mobile, 1.5rem);
   }
 
   .postTitle {
     font-size: 1.5rem;
   }
 
+  .modal {
+    padding: var(--page-padding-horizontal-mobile, 1.5rem);
+  }
+
   .modalArticle {
-    padding: 2rem;
+    padding: var(--content-padding-mobile, 2rem);
   }
 
   .modalTitle {
@@ -319,6 +318,8 @@
   .modalClose {
     top: 1rem;
     right: 1rem;
+    min-width: var(--min-touch-target, 44px);
+    min-height: var(--min-touch-target, 44px);
   }
 
   .modalBody {
@@ -326,17 +327,14 @@
   }
 }
 
+/* Small Mobile */
 @media (max-width: 480px) {
   .blogContainer {
-    padding: calc(80px + 2rem) 1rem 2rem 1rem;
-  }
-
-  .pageHeading {
-    font-size: 2rem;
+    padding: var(--page-padding-top-mobile, calc(80px + 2rem)) 1rem 2rem;
   }
 
   .blogPostCard {
-    padding: 1.5rem;
+    padding: var(--content-padding-small-mobile, 1.5rem);
   }
 
   .postTitle {
@@ -344,10 +342,24 @@
   }
 
   .modalArticle {
-    padding: 1.5rem;
+    padding: var(--content-padding-small-mobile, 1.5rem);
   }
 
   .modalTitle {
     font-size: 1.75rem;
+  }
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+  .pageHeading {
+    font-size: 2.75rem;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .pageHeading {
+    font-size: 3.5rem;
   }
 }

@@ -21,8 +21,9 @@
   font-size: 0.875rem;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all var(--transition-duration, 0.3s) ease;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  min-height: var(--min-touch-target, 44px);
 }
 
 .downloadButton:hover {
@@ -61,7 +62,7 @@
 .resumeContent {
   max-width: 900px;
   margin: 0 auto;
-  padding: 3rem 2rem;
+  padding: var(--content-padding-desktop, 3rem) var(--page-padding-horizontal-desktop, 2rem);
   background: var(--color-background, #0D0D0D);
   border-radius: 12px;
   margin-top: 2rem;
@@ -138,10 +139,12 @@
 
 .socialIcon {
   color: #FFFFFF;
-  transition: color 0.3s ease, transform 0.2s ease;
+  transition: color var(--transition-duration, 0.3s) ease, transform var(--transition-duration, 0.2s) ease;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  min-width: var(--min-touch-target, 44px);
+  min-height: var(--min-touch-target, 44px);
 }
 
 .socialIcon:hover {
@@ -231,8 +234,8 @@
 /* Skills and Courses Grid - Side by Side */
 .skillsCoursesGrid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3rem;
+  grid-template-columns: 1fr;
+  gap: var(--grid-gap-mobile, 2rem);
   margin-bottom: 2.5rem;
 }
 
@@ -386,8 +389,11 @@
   border-radius: 6px;
   color: var(--color-text-secondary, #F2F2F2);
   font-size: 0.95rem;
-  transition: all 0.2s ease;
+  transition: all var(--transition-duration, 0.2s) ease;
   border: 1px solid var(--color-border, #595959);
+  min-height: var(--min-touch-target, 44px);
+  display: flex;
+  align-items: center;
 }
 
 .skillsList li::before,
@@ -456,21 +462,12 @@
   margin: 0;
 }
 
-/* Responsive Design */
-@media (max-width: 968px) {
-  .mainContent {
-    margin-top: 1.5rem;
-  }
+/* Responsive Design - Standardized Breakpoints */
 
-  .skillsCoursesGrid {
-    grid-template-columns: 1fr;
-    gap: 0;
-  }
-}
-
-@media (max-width: 768px) {
+/* Mobile */
+@media (max-width: 767px) {
   .resumeContent {
-    padding: 2rem 1.5rem;
+    padding: var(--content-padding-mobile, 2rem) var(--page-padding-horizontal-mobile, 1.5rem);
     margin: 1rem;
   }
 
@@ -491,11 +488,25 @@
     font-size: 0.95rem;
     padding: 0.75rem 1.5rem;
   }
+
+  .mainContent {
+    margin-top: 1.5rem;
+  }
+
+  .skillsCoursesGrid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
 }
 
+/* Small Mobile */
 @media (max-width: 480px) {
   .resumeContainer {
     padding-top: 80px;
+  }
+
+  .resumeContent {
+    padding: var(--content-padding-small-mobile, 1.5rem) 1rem;
   }
 
   .name {
@@ -513,5 +524,20 @@
 
   .jobTitle {
     font-size: 1rem;
+  }
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+  .skillsCoursesGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--grid-gap-tablet, 3rem);
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .skillsCoursesGrid {
+    gap: var(--grid-gap-desktop, 3rem);
   }
 }

@@ -1,5 +1,5 @@
 .nav {
-  padding: 1.25rem 2rem;
+  padding: 1.25rem var(--page-padding-horizontal-desktop, 2rem);
   z-index: 100;
   display: flex;
   justify-content: space-between;
@@ -154,19 +154,20 @@
   transform: translateY(-0.625rem) rotate(-45deg);
 }
 
-/* Mobile Menu */
+/* Mobile Menu - Improved Responsive Width */
 .mobileMenu {
   display: none;
   position: fixed;
   top: 0;
   right: 0;
-  width: 280px;
+  width: 85%;
+  max-width: 320px;
   height: 100vh;
   background-color: rgba(13, 13, 13, 0.98);
   transform: translateX(100%);
-  transition: transform 0.3s ease;
+  transition: transform var(--transition-duration, 0.3s) ease;
   z-index: 100;
-  padding: 5rem 2rem 2rem;
+  padding: 5rem var(--page-padding-horizontal-desktop, 2rem) 2rem;
   box-shadow: -2px 0 8px rgba(0, 0, 0, 0.25);
   overflow-y: auto;
 }
@@ -232,10 +233,10 @@
   color: var(--color-text-primary, #F2F2F2);
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
+/* Responsive Design - Standardized Breakpoints */
+@media (max-width: 767px) {
   .nav {
-    padding: 1rem 1.5rem;
+    padding: 1rem var(--page-padding-horizontal-mobile, 1.5rem);
   }
 
   /* Hide desktop navigation and social icons on mobile */
@@ -250,10 +251,29 @@
   /* Show hamburger menu on mobile */
   .hamburger {
     display: flex;
+    min-width: var(--min-touch-target, 44px);
+    min-height: var(--min-touch-target, 44px);
   }
 
   /* Show mobile menu on mobile */
   .mobileMenu {
     display: block;
+    width: 90%;
+    max-width: 300px;
+    padding: 5rem var(--page-padding-horizontal-mobile, 1.5rem) 2rem;
+  }
+
+  /* Ensure mobile nav links meet touch target requirements */
+  .mobileNavLink {
+    min-height: var(--min-touch-target, 44px);
+    display: flex;
+    align-items: center;
+  }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+  .mobileMenu {
+    width: 95%;
   }
 }

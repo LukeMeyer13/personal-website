@@ -2,13 +2,13 @@
 .projectDetailContainer {
   max-width: 900px;
   margin: 0 auto;
-  padding: calc(80px + 4rem) 2rem 4rem;
+  padding: var(--page-padding-top-desktop, calc(80px + 4rem)) var(--page-padding-horizontal-desktop, 2rem) 4rem;
   min-height: calc(100vh - 200px);
 }
 
 .projectDetailSection {
   opacity: 0;
-  animation: fadeInUp 0.8s ease-out 0.1s forwards;
+  animation: fadeInUp var(--animation-duration-slow, 0.8s) ease-out 0.1s forwards;
 }
 
 /* Header */
@@ -70,7 +70,7 @@
   background-color: var(--color-background, #0D0D0D);
   border: 2px solid var(--color-border, #595959);
   border-radius: 12px;
-  padding: 3rem;
+  padding: var(--content-padding-desktop, 3rem);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
@@ -232,10 +232,12 @@
   }
 }
 
-/* Responsive Design */
+/* Responsive Design - Standardized Breakpoints */
+
+/* Mobile */
 @media (max-width: 767px) {
   .projectDetailContainer {
-    padding: calc(80px + 2rem) 1.5rem 3rem;
+    padding: var(--page-padding-top-mobile, calc(80px + 2rem)) var(--page-padding-horizontal-mobile, 1.5rem) 3rem;
   }
 
   .projectTitle {
@@ -247,7 +249,7 @@
   }
 
   .projectContent {
-    padding: 2rem;
+    padding: var(--content-padding-mobile, 2rem);
   }
 
   .sectionHeading {
@@ -267,9 +269,24 @@
     width: 90px;
     height: 90px;
   }
+
+  /* Ensure back link meets touch target */
+  .backLink {
+    min-height: var(--min-touch-target, 44px);
+    display: inline-flex;
+    align-items: center;
+  }
 }
 
+/* Tablet */
 @media (min-width: 768px) {
+  .projectTitle {
+    font-size: 2.75rem;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
   .projectTitle {
     font-size: 3rem;
   }
