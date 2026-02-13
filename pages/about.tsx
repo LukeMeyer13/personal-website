@@ -29,15 +29,15 @@ import {
 
 // Define all gallery images in the "off the screen" section
 const galleryImages = [
-  '/images/fire_me.jpg',
-  '/images/Burn_Ops.jpeg',
-  '/images/Co_River.JPG',
-  '/images/fire_helo.jpg',
-  '/images/fire_hill.jpg',
-  '/images/Landscape.jpg',
-  '/images/Sunset.jpg',
-  '/images/View.jpg',
-  '/images/wash.jpeg'
+  '/images/fire_me.webp',
+  '/images/Burn_Ops.webp',
+  '/images/Co_River.webp',
+  '/images/fire_helo.webp',
+  '/images/fire_hill.webp',
+  '/images/Landscape.webp',
+  '/images/Sunset.webp',
+  '/images/View.webp',
+  '/images/wash.webp'
 ];
 
 export default function About() {
@@ -131,15 +131,18 @@ export default function About() {
           <h1 className={styles.sectionHeading}>About Me - Professional</h1>
           <div className={styles.aboutBox}>
             <div className={styles.aboutLeft}>
-              <Image
-                src="/images/me.jpg"
-                alt="Luke Meyer"
-                width={200}
-                height={200}
-                className={styles.profileImage}
-                priority
-                quality={75}
-              />
+              <picture>
+                <source media="(max-width: 768px)" srcSet="/images/mobile_me.webp" />
+                <Image
+                  src="/images/me.webp"
+                  alt="Luke Meyer"
+                  width={200}
+                  height={200}
+                  className={styles.profileImage}
+                  priority
+                  quality={75}
+                />
+              </picture>
               <h3 className={styles.profileName}>Luke Meyer</h3>
               <p className={styles.profileEmail}>
                 <a href="mailto:lmeye90@wgu.edu">lmeye90@wgu.edu</a>
@@ -328,46 +331,55 @@ export default function About() {
           </div>
           <div className={styles.masonryContainer}>
             {/* Row 1: 3 Photos */}
-            <div className={styles.masonryItem} onClick={() => openLightbox('/images/fire_me.jpg')}>
+            <div className={styles.masonryItem} onClick={() => openLightbox('/images/fire_me.webp')}>
               <div className={styles.imageWrapper}>
-                <Image
-                  src="/images/fire_me.jpg"
-                  alt="Wildland Firefighter"
-                  width={400}
-                  height={300}
-                  className={styles.masonryImage}
-                  loading="lazy"
-                />
+                <picture>
+                  <source media="(max-width: 768px)" srcSet="/images/mobile_fire_me.webp" />
+                  <Image
+                    src="/images/fire_me.webp"
+                    alt="Wildland Firefighter"
+                    width={400}
+                    height={300}
+                    className={styles.masonryImage}
+                    loading="lazy"
+                  />
+                </picture>
                 <div className={styles.imageOverlay}>
                   <span className={styles.imageCaption}>Wildland Firefighter</span>
                 </div>
               </div>
             </div>
-            <div className={styles.masonryItem} onClick={() => openLightbox('/images/Burn_Ops.jpeg')}>
+            <div className={styles.masonryItem} onClick={() => openLightbox('/images/Burn_Ops.webp')}>
               <div className={styles.imageWrapper}>
-                <Image
-                  src="/images/Burn_Ops.jpeg"
-                  alt="Burn Operations"
-                  width={400}
-                  height={300}
-                  className={styles.masonryImage}
-                  loading="lazy"
-                />
+                <picture>
+                  <source media="(max-width: 768px)" srcSet="/images/mobile_burn_ops.webp" />
+                  <Image
+                    src="/images/Burn_Ops.webp"
+                    alt="Burn Operations"
+                    width={400}
+                    height={300}
+                    className={styles.masonryImage}
+                    loading="lazy"
+                  />
+                </picture>
                 <div className={styles.imageOverlay}>
                   <span className={styles.imageCaption}>Burn Operations</span>
                 </div>
               </div>
             </div>
-            <div className={styles.masonryItem} onClick={() => openLightbox('/images/Co_River.JPG')}>
+            <div className={styles.masonryItem} onClick={() => openLightbox('/images/Co_River.webp')}>
               <div className={styles.imageWrapper}>
-                <Image
-                  src="/images/Co_River.JPG"
-                  alt="Colorado River"
-                  width={400}
-                  height={300}
-                  className={styles.masonryImage}
-                  loading="lazy"
-                />
+                <picture>
+                  <source media="(max-width: 768px)" srcSet="/images/mobile_co_river.webp" />
+                  <Image
+                    src="/images/Co_River.webp"
+                    alt="Colorado River"
+                    width={400}
+                    height={300}
+                    className={styles.masonryImage}
+                    loading="lazy"
+                  />
+                </picture>
                 <div className={styles.imageOverlay}>
                   <span className={styles.imageCaption}>Colorado River</span>
                 </div>
@@ -388,16 +400,19 @@ export default function About() {
             </div>
 
             {/* Photo 4 */}
-            <div className={styles.masonryItem} onClick={() => openLightbox('/images/fire_helo.jpg')}>
+            <div className={styles.masonryItem} onClick={() => openLightbox('/images/fire_helo.webp')}>
               <div className={styles.imageWrapper}>
-                <Image
-                  src="/images/fire_helo.jpg"
-                  alt="Helicopter Operations"
-                  width={400}
-                  height={300}
-                  className={styles.masonryImage}
-                  loading="lazy"
-                />
+                <picture>
+                  <source media="(max-width: 768px)" srcSet="/images/mobile_fire_helo.webp" />
+                  <Image
+                    src="/images/fire_helo.webp"
+                    alt="Helicopter Operations"
+                    width={400}
+                    height={300}
+                    className={styles.masonryImage}
+                    loading="lazy"
+                  />
+                </picture>
                 <div className={styles.imageOverlay}>
                   <span className={styles.imageCaption}>Helicopter Operations</span>
                 </div>
@@ -405,16 +420,19 @@ export default function About() {
             </div>
 
             {/* Photo 5 */}
-            <div className={styles.masonryItem} onClick={() => openLightbox('/images/fire_hill.jpg')}>
+            <div className={styles.masonryItem} onClick={() => openLightbox('/images/fire_hill.webp')}>
               <div className={styles.imageWrapper}>
-                <Image
-                  src="/images/fire_hill.jpg"
-                  alt="Wildland Fire on Hillside"
-                  width={400}
-                  height={300}
-                  className={styles.masonryImage}
-                  loading="lazy"
-                />
+                <picture>
+                  <source media="(max-width: 768px)" srcSet="/images/mobile_fire_hill.webp" />
+                  <Image
+                    src="/images/fire_hill.webp"
+                    alt="Wildland Fire on Hillside"
+                    width={400}
+                    height={300}
+                    className={styles.masonryImage}
+                    loading="lazy"
+                  />
+                </picture>
                 <div className={styles.imageOverlay}>
                   <span className={styles.imageCaption}>Wildland Fire</span>
                 </div>
@@ -432,16 +450,19 @@ export default function About() {
             </div>
 
             {/* Photo 6 */}
-            <div className={styles.masonryItem} onClick={() => openLightbox('/images/Landscape.jpg')}>
+            <div className={styles.masonryItem} onClick={() => openLightbox('/images/Landscape.webp')}>
               <div className={styles.imageWrapper}>
-                <Image
-                  src="/images/Landscape.jpg"
-                  alt="Landscape"
-                  width={400}
-                  height={300}
-                  className={styles.masonryImage}
-                  loading="lazy"
-                />
+                <picture>
+                  <source media="(max-width: 768px)" srcSet="/images/mobile_landscape.webp" />
+                  <Image
+                    src="/images/Landscape.webp"
+                    alt="Landscape"
+                    width={400}
+                    height={300}
+                    className={styles.masonryImage}
+                    loading="lazy"
+                  />
+                </picture>
                 <div className={styles.imageOverlay}>
                   <span className={styles.imageCaption}>Exploring the Backcountry</span>
                 </div>
@@ -459,16 +480,19 @@ export default function About() {
             </div>
 
             {/* Photo 8 */}
-            <div className={styles.masonryItem} onClick={() => openLightbox('/images/Sunset.jpg')}>
+            <div className={styles.masonryItem} onClick={() => openLightbox('/images/Sunset.webp')}>
               <div className={styles.imageWrapper}>
-                <Image
-                  src="/images/Sunset.jpg"
-                  alt="Sunset"
-                  width={400}
-                  height={300}
-                  className={styles.masonryImage}
-                  loading="lazy"
-                />
+                <picture>
+                  <source media="(max-width: 768px)" srcSet="/images/mobile_sunset.webp" />
+                  <Image
+                    src="/images/Sunset.webp"
+                    alt="Sunset"
+                    width={400}
+                    height={300}
+                    className={styles.masonryImage}
+                    loading="lazy"
+                  />
+                </picture>
                 <div className={styles.imageOverlay}>
                   <span className={styles.imageCaption}>Golden Hour</span>
                 </div>
@@ -476,16 +500,19 @@ export default function About() {
             </div>
 
             {/* Photo 9 */}
-            <div className={styles.masonryItem} onClick={() => openLightbox('/images/View.jpg')}>
+            <div className={styles.masonryItem} onClick={() => openLightbox('/images/View.webp')}>
               <div className={styles.imageWrapper}>
-                <Image
-                  src="/images/View.jpg"
-                  alt="Mountain View"
-                  width={400}
-                  height={300}
-                  className={styles.masonryImage}
-                  loading="lazy"
-                />
+                <picture>
+                  <source media="(max-width: 768px)" srcSet="/images/mobile_view.webp" />
+                  <Image
+                    src="/images/View.webp"
+                    alt="Mountain View"
+                    width={400}
+                    height={300}
+                    className={styles.masonryImage}
+                    loading="lazy"
+                  />
+                </picture>
                 <div className={styles.imageOverlay}>
                   <span className={styles.imageCaption}>Mountain View</span>
                 </div>
@@ -493,16 +520,19 @@ export default function About() {
             </div>
 
             {/* Photo 10 */}
-            <div className={styles.masonryItem} onClick={() => openLightbox('/images/wash.jpeg')}>
+            <div className={styles.masonryItem} onClick={() => openLightbox('/images/wash.webp')}>
               <div className={styles.imageWrapper}>
-                <Image
-                  src="/images/wash.jpeg"
-                  alt="Desert Wash"
-                  width={400}
-                  height={300}
-                  className={styles.masonryImage}
-                  loading="lazy"
-                />
+                <picture>
+                  <source media="(max-width: 768px)" srcSet="/images/mobile_wash.webp" />
+                  <Image
+                    src="/images/wash.webp"
+                    alt="Desert Wash"
+                    width={400}
+                    height={300}
+                    className={styles.masonryImage}
+                    loading="lazy"
+                  />
+                </picture>
                 <div className={styles.imageOverlay}>
                   <span className={styles.imageCaption}>Desert Wash</span>
                 </div>

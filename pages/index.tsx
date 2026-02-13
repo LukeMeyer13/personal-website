@@ -48,20 +48,23 @@ export default function Homepage() {
       {/* Hero Banner Section */}
       <section ref={bannerRef} className={styles.heroBanner}>
         {!imageError ? (
-          <Image
-            src="/images/banner_3.jpg"
-            alt="Desert landscape with mountains"
-            fill
-            priority
-            className={styles.heroImage}
-            sizes="100vw"
-            quality={85}
-            style={{ 
-              objectFit: 'cover',
-              transform: `translateY(${imageTransform}px)`
-            }}
-            onError={() => setImageError(true)}
-          />
+          <picture>
+            <source media="(max-width: 768px)" srcSet="/images/mobile_banner.webp" />
+            <Image
+              src="/images/banner.webp"
+              alt="Desert landscape with mountains"
+              fill
+              priority
+              className={styles.heroImage}
+              sizes="100vw"
+              quality={85}
+              style={{ 
+                objectFit: 'cover',
+                transform: `translateY(${imageTransform}px)`
+              }}
+              onError={() => setImageError(true)}
+            />
+          </picture>
         ) : (
           <div className={styles.placeholderBanner}>
             <span>Please add banner.jpg to /public/images/</span>
@@ -76,7 +79,7 @@ export default function Homepage() {
         <div 
           className={styles.scrollIndicator}
           style={{ 
-            transform: `translateY(${imageTransform}px)`,
+            transform: `translate(-50%, ${imageTransform}px)`,
             willChange: 'transform',
             transition: 'transform 0.1s ease-out'
           }}
@@ -114,15 +117,18 @@ export default function Homepage() {
         <section className={styles.aboutSection}>
           <div className={styles.aboutBox}>
             <div className={styles.aboutLeft}>
-              <Image
-                src="/images/me.jpg"
-                alt="Luke Meyer"
-                width={200}
-                height={200}
-                className={styles.profileImage}
-                loading="lazy"
-                quality={85}
-              />
+              <picture>
+                <source media="(max-width: 768px)" srcSet="/images/mobile_me.webp" />
+                <Image
+                  src="/images/me.webp"
+                  alt="Luke Meyer"
+                  width={200}
+                  height={200}
+                  className={styles.profileImage}
+                  loading="lazy"
+                  quality={85}
+                />
+              </picture>
               <h3 className={styles.profileName}>Luke Meyer</h3>
               <p className={styles.profileEmail}>
                 <a href="mailto:lmeye90@wgu.edu">lmeye90@wgu.edu</a>

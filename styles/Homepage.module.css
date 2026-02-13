@@ -242,6 +242,14 @@
     padding: 3rem var(--page-padding-horizontal-mobile, 1.5rem);
   }
 
+  .heroText {
+    width: 100%;
+    max-width: 100%;
+    left: 0;
+    transform: translate(0, -50%);
+    padding: 0.5rem;
+  }
+
   .heroName {
     font-size: 2.5rem;
     white-space: normal;
