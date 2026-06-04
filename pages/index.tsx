@@ -52,7 +52,7 @@ export default function Homepage() {
             <source media="(max-width: 768px)" srcSet="/images/mobile_banner.webp" />
             <Image
               src="/images/banner.webp"
-              alt="Desert landscape with mountains"
+              alt="Laptop with a colorful gradient screen in a dark workspace"
               fill
               priority
               className={styles.heroImage}

@@ -1,17 +1,11 @@
-# Banner Image
+# Site images
 
-Please add your banner image here as `banner.jpg`.
+WebP and JPEG assets for the homepage, about page, and resume. Run `npm run process-images` after replacing source PNGs in the Cursor assets folder (see `scripts/process-images.mjs` for filenames and output dimensions).
 
-**Recommended specifications:**
-- Format: JPG or PNG
-- Dimensions: 1920x1080 or larger (wide landscape format)
-- File size: Compressed to under 500KB for optimal loading
+**Banner:** `banner.webp` (2400×1699), `mobile_banner.webp` (640×453), optional `banner.jpg`
 
-The image should be the first desert landscape option (red-orange mountains with golden hour lighting).
+**Profile:** `me.webp` / `mobile_me.webp` (400×400), `me.jpg` (400×600 for resume)
 
-If you need to compress the image, you can use online tools like:
-- TinyPNG
-- Squoosh
-- ImageOptim
+**About gallery:** `fire_me`, `Burn_Ops`, `Co_River`, `fire_helo`, `fire_hill` (1200×900 + mobile variants), `Landscape` (1200×678), `Sunset`, `View`, `wash` (1200×675 + mobile variants)
 
-Once you add the image file, it will automatically display on the homepage.
+**Resume PDF:** `Luke_Meyer_Resume.pdf`
